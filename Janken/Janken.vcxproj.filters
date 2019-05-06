@@ -2,6 +2,13 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="src\Main.cpp" />
+    <ClCompile Include="src\scene\title.cpp" />
+    <ClCompile Include="src\game_manager.cpp" />
+    <ClCompile Include="src\scene\play.cpp" />
+    <ClCompile Include="src\scene\result.cpp" />
+    <ClCompile Include="src\game_state\gs_countdown.cpp" />
+    <ClCompile Include="src\game_state\gs_play.cpp" />
+    <ClCompile Include="src\constants\constants.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="common.props" />
@@ -69,5 +76,16 @@
   </ItemGroup>
   <ItemGroup>
     <Xml Include="App\example\test.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\game_manager.h" />
+    <ClInclude Include="src\scene\play.h" />
+    <ClInclude Include="src\scene\result.h" />
+    <ClInclude Include="src\scene\title.h" />
+    <ClInclude Include="src\scene\scene_base.h" />
+    <ClInclude Include="src\game_state\game_state_base.h" />
+    <ClInclude Include="src\game_state\gs_countdown.h" />
+    <ClInclude Include="src\game_state\gs_play.h" />
+    <ClInclude Include="src\constants\constants.h" />
   </ItemGroup>
 </Project>

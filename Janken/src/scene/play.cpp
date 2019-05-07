@@ -32,7 +32,7 @@ void PlayScene::exit()
 	current_state_->exit();
 }
 
-void PlayScene::changeState(const std::shared_ptr<GameStateBase> state)
+void PlayScene::changeState(const std::shared_ptr<GameStateBase>& state)
 {
 	if (current_state_) {
 		current_state_->exit();

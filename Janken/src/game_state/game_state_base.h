@@ -13,13 +13,13 @@ public:
 	virtual void draw() = 0;	// 毎フレーム
 	virtual void exit() = 0;	// ステートの終了時
 
-	inline void setStateFinishedCallback(const std::function<void(const std::shared_ptr<GameStateBase>)>& callback)
+	inline void setStateFinishedCallback(const std::function<void(const std::shared_ptr<GameStateBase>&)>& callback)
 	{
 		onStateFinishedCallback_ = callback;
 	}
 
 protected:
-	inline void invokeStateFinishedCallback(const std::shared_ptr< GameStateBase> state)
+	inline void invokeStateFinishedCallback(const std::shared_ptr< GameStateBase>& state)
 	{
 		if (onStateFinishedCallback_) {
 			onStateFinishedCallback_(state);
@@ -28,5 +28,5 @@ protected:
 
 private:
 	// ステートが終了したときのコールバック
-	std::function<void(const std::shared_ptr<GameStateBase>)> onStateFinishedCallback_;
+	std::function<void(const std::shared_ptr<GameStateBase>&)> onStateFinishedCallback_;
 };

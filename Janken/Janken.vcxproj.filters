@@ -9,6 +9,8 @@
     <ClCompile Include="src\game_state\gs_countdown.cpp" />
     <ClCompile Include="src\game_state\gs_play.cpp" />
     <ClCompile Include="src\constants\constants.cpp" />
+    <ClCompile Include="src\ui\title_ui_controller.cpp" />
+    <ClCompile Include="src\ui\play_ui_controller.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="common.props" />
@@ -87,5 +89,7 @@
     <ClInclude Include="src\game_state\gs_countdown.h" />
     <ClInclude Include="src\game_state\gs_play.h" />
     <ClInclude Include="src\constants\constants.h" />
+    <ClInclude Include="src\ui\title_ui_controller.h" />
+    <ClInclude Include="src\ui\play_ui_controller.h" />
   </ItemGroup>
 </Project>

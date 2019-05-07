@@ -1,10 +1,13 @@
 #include "gs_countdown.h"
 
-#include "gs_play.h"
+#include <Siv3D.hpp>
 
-GS_Countdown::GS_Countdown() : GameStateBase(), count_(0), count_font_(80, Typeface::Bold)
+#include "../ui/title_ui_controller.h"
+#include "gs_play.h"
+#include "../constants/constants.h"
+
+GS_Countdown::GS_Countdown() : GameStateBase(), ui_controller(std::make_unique<TitleUIController>()),  stopwatch_(std::make_unique<Stopwatch>()), count_(Constants::Play::MaxCountdown)
 {
-	stopwatch_ = std::make_unique<Stopwatch>();
 }
 
 void GS_Countdown::initialize()
@@ -19,7 +22,7 @@ void GS_Countdown::update()
 		stopwatch_->reset();
 		
 		// カウントダウン終了
-		if (++count_ >= CountStr.size()) {
+		if (--count_ <= 0) {
 			// GS_Playステートへ移る
 			invokeStateFinishedCallback(std::make_shared<GS_Play>());
 			return;
@@ -31,7 +34,8 @@ void GS_Countdown::update()
 
 void GS_Countdown::draw()
 {
-	count_font_(CountStr[count_]).draw(Arg::center = Vec2(Window::Width() / 2, Window::Height() / 2));
+	// カウントダウン表示
+	ui_controller->drawCountdown(count_);
 }
 
 void GS_Countdown::exit()

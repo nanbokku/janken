@@ -16,6 +16,7 @@ public:
 	void exit() override;
 
 private:
-	void changeState(const std::shared_ptr<GameStateBase> state);
+	void changeState(const std::shared_ptr<GameStateBase>& state);
+	
 	std::shared_ptr<GameStateBase> current_state_;
 };

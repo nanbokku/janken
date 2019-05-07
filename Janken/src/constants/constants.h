@@ -24,4 +24,9 @@ namespace Constants
 		static const String TitleStr;
 		static const String StartBtnStr;
 	};
+
+	struct Play
+	{
+		static constexpr int MaxCountdown = 3;
+	};
 }

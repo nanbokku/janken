@@ -11,6 +11,8 @@
     <ClCompile Include="src\constants\constants.cpp" />
     <ClCompile Include="src\ui\title_ui_controller.cpp" />
     <ClCompile Include="src\ui\play_ui_controller.cpp" />
+    <ClCompile Include="src\janken_generator.cpp" />
+    <ClCompile Include="src\store\janken_history.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="common.props" />
@@ -91,5 +93,7 @@
     <ClInclude Include="src\constants\constants.h" />
     <ClInclude Include="src\ui\title_ui_controller.h" />
     <ClInclude Include="src\ui\play_ui_controller.h" />
+    <ClInclude Include="src\janken_generator.h" />
+    <ClInclude Include="src\store\janken_history.h" />
   </ItemGroup>
 </Project>

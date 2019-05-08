@@ -17,6 +17,14 @@ namespace Constants
 		Play
 	};
 
+	const enum class HandGesture
+	{
+		Goo,
+		Choki,
+		Pa,
+		None
+	};
+
 	constexpr Size WindowSize(800, 600);
 
 	struct Title

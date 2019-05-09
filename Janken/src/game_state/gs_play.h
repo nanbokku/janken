@@ -2,7 +2,7 @@
 
 #include "game_state_base.h"
 
-#include <Siv3D/Stopwatch.hpp>
+#include <Siv3D.hpp>
 
 #include "../ui/play_ui_controller.h"
 #include "../store/janken_history.h"

@@ -15,5 +15,5 @@ public:
 private:
 	Constants::HandGesture hand_;
 	bool is_active_;
-	// HandRecognizer recognizer_;
+	// TODO: LeapMotion‚Ìî•ñ‚ğæ“¾‚·‚éƒNƒ‰ƒX
 };

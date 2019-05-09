@@ -214,6 +214,7 @@
     <ClCompile Include="src\scene\title.cpp" />
     <ClCompile Include="src\ui\play_ui_controller.cpp" />
     <ClCompile Include="src\ui\countdown_ui_controller.cpp" />
+    <ClCompile Include="src\ui\result_ui_controller.cpp" />
     <ClCompile Include="src\ui\title_ui_controller.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -297,6 +298,7 @@
     <ClInclude Include="src\scene\title.h" />
     <ClInclude Include="src\ui\play_ui_controller.h" />
     <ClInclude Include="src\ui\countdown_ui_controller.h" />
+    <ClInclude Include="src\ui\result_ui_controller.h" />
     <ClInclude Include="src\ui\title_ui_controller.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

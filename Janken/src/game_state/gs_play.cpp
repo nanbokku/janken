@@ -1,7 +1,5 @@
 #include "gs_play.h"
 
-#include <Siv3D.hpp>
-
 #include "../store/janken_history.h"
 #include "../scene/result.h"
 
@@ -29,14 +27,20 @@ void GS_Play::initialize()
 
 void GS_Play::update()
 {
-	// —LŒøŽžŠÔŠO
+	// ŽžŠÔØ‚ê
 	if (stopwatch_.isRunning() && stopwatch_.ms() > Constants::Play::MaxWaitMs) {
 		stopwatch_.reset();
 		player_.setActive(false);
 
 		// ŽŸ‚Ì–â‘è‚Ö
 		next();
+		return;
 	}
+
+	// TODO: LeapMotion‚©‚çŽè‚ðŽæ“¾
+	// HandGesture hand = getHand()
+	// auto correct = history_.addAnswer(hand);
+	// if (correct) next();
 }
 
 void GS_Play::draw()

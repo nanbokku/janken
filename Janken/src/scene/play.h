@@ -2,12 +2,15 @@
 
 #include <HamFramework/SceneManager.hpp>
 
-#include "../constants/constants.h"
-
 // forward declaration
 class GameStateBase;
+namespace Constants
+{
+	enum class Scene;
+	struct Score;
+}
 
-class PlayScene : public SceneManager<Constants::Scene>::Scene
+class PlayScene : public SceneManager<Constants::Scene, Constants::Score>::Scene
 {
 public:
 	PlayScene(const InitData& data);

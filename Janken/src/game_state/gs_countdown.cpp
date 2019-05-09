@@ -1,7 +1,5 @@
 #include "gs_countdown.h"
 
-#include <Siv3D.hpp>
-
 #include "gs_play.h"
 #include "../constants/constants.h"
 

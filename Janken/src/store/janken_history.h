@@ -11,8 +11,7 @@ public:
 	~JankenHistory() = default;
 
 	void push_back_question(const std::pair<Constants::HandGesture, bool>&);
-	// ジャンケンの強さ比較
-	int compare(Constants::HandGesture, Constants::HandGesture);
+	bool addAnswer(Constants::HandGesture);
 
 	inline size_t getTotalNumberOfQuestions()
 	{
@@ -36,6 +35,9 @@ public:
 
 
 private:
+	// ジャンケンの強さ比較
+	int compare(Constants::HandGesture, Constants::HandGesture);
+
 	inline void invokeQuestionAddedCallback(const std::pair<Constants::HandGesture, bool>& question)
 	{
 		if (onQuestionAddedCallback_) {

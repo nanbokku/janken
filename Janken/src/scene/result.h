@@ -2,9 +2,16 @@
 
 #include <HamFramework/SceneManager.hpp>
 
-#include "../constants/constants.h"
+#include "../ui/result_ui_controller.h"
 
-class ResultScene : public SceneManager<Constants::Scene>::Scene
+// forward declaration
+namespace Constants
+{
+	enum class Scene;
+	struct Score;
+}
+
+class ResultScene : public SceneManager<Constants::Scene, Constants::Score>::Scene
 {
 public:
 	ResultScene(const InitData& data);
@@ -13,4 +20,7 @@ public:
 
 	void initialize();
 	void exit();
+
+private:
+	ResultUIController ui_controller_;
 };

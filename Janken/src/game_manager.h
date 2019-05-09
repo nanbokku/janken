@@ -1,7 +1,6 @@
 #pragma once
 
 #include <memory>
-#include "constants/constants.h"
 
 // forward declaration
 namespace s3d
@@ -12,6 +11,11 @@ namespace s3d
 	}
 	template<class State, class Data>
 	class SceneManager;
+}
+namespace Constants
+{
+	enum class Scene;
+	struct Score;
 }
 
 // singleton class
@@ -37,5 +41,5 @@ private:
 	GameManager();
 	~GameManager();
 
-	std::shared_ptr<s3d::SceneManager<Constants::Scene, s3d::detail::EmptyData>> manager_;
+	std::shared_ptr<s3d::SceneManager<Constants::Scene, Constants::Score>> manager_;
 };

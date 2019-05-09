@@ -27,6 +27,11 @@ namespace Constants
 
 	constexpr Size WindowSize(800, 600);
 
+	struct Score
+	{
+		int correct_answers = 0;
+	};
+
 	struct Title
 	{
 		static const String TitleStr;

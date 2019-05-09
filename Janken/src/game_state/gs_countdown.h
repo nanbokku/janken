@@ -2,8 +2,7 @@
 
 #include "game_state_base.h"
 
-#include <Siv3D/Stopwatch.hpp>
-
+#include <Siv3D.hpp>
 #include "../ui/countdown_ui_controller.h"
 
 class GS_Countdown : public GameStateBase

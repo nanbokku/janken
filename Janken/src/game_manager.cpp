@@ -6,10 +6,13 @@
 #include "scene/title.h"
 #include "scene/play.h"
 #include "scene/result.h"
+#include "constants/constants.h"
+
+using MyApp = SceneManager<Constants::Scene, Constants::Score>;
 
 GameManager::GameManager()
 {
-	manager_ = std::make_shared<SceneManager<Constants::Scene>>();
+	manager_ = std::make_shared<MyApp>();
 }
 
 GameManager::~GameManager()

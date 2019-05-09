@@ -5,7 +5,7 @@
 #include "../ui/title_ui_controller.h"
 #include "../constants/constants.h"
 
-class TitleScene : public SceneManager<Constants::Scene>::Scene
+class TitleScene : public SceneManager<Constants::Scene, Constants::Score>::Scene
 {
 public:
 	TitleScene(const InitData& data);

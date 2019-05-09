@@ -2,13 +2,9 @@
 
 #include "game_state_base.h"
 
-// forward declaration
-class TitleUIController;
-// forward declaration
-namespace s3d
-{
-	class Stopwatch;
-}
+#include <Siv3D/Stopwatch.hpp>
+
+#include "../ui/countdown_ui_controller.h"
 
 class GS_Countdown : public GameStateBase
 {
@@ -21,7 +17,7 @@ public:
 	void exit() override;
 
 private:
-	std::unique_ptr<TitleUIController> ui_controller;
-	std::unique_ptr<s3d::Stopwatch> stopwatch_;
+	CountdownUIController ui_controller;
+	s3d::Stopwatch stopwatch_;
 	int count_;
 };

@@ -2,11 +2,11 @@
 
 #include <Siv3D/Font.hpp>
 
-class TitleUIController
+class CountdownUIController
 {
 public:
-	TitleUIController();
-	~TitleUIController() = default;
+	CountdownUIController();
+	~CountdownUIController() = default;
 
 	void drawCountdown(int);
 

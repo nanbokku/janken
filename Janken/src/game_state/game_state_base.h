@@ -21,7 +21,7 @@ public:
 protected:
 	inline void invokeStateFinishedCallback(const std::shared_ptr< GameStateBase>& state)
 	{
-		if (onStateFinishedCallback_) {
+				if (onStateFinishedCallback_) {
 			onStateFinishedCallback_(state);
 		}
 	}

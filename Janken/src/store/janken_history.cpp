@@ -1,13 +1,18 @@
 #include "janken_history.h"
 
-using question_pair = std::pair<Constants::HandGesture, bool>;
-
-JankenHistory::JankenHistory() : questions_(std::vector<question_pair>()), correct_answers_(0)
+JankenHistory::JankenHistory() : questions_(std::vector<std::pair<Constants::HandGesture, bool>>()), correct_answers_(0)
 {
 	
 }
 
-int JankenHistory::compare(const Constants::HandGesture& hand1, const Constants::HandGesture& hand2)
+void JankenHistory::push_back_question(const std::pair<Constants::HandGesture, bool>& question)
+{
+	questions_.push_back(question);
+
+	invokeQuestionAddedCallback(question);
+}
+
+int JankenHistory::compare(const Constants::HandGesture hand1, const Constants::HandGesture hand2)
 {
 	// TODO
 	// ‹­‚³‚ªhand1 > hand2‚Ì‚Æ‚« return 1
@@ -15,16 +20,4 @@ int JankenHistory::compare(const Constants::HandGesture& hand1, const Constants:
 	// hand1 < hand2 return -1
 
 	return 1;
-}
-
-void JankenHistory::setQuestionAddedCallback(const std::function<void(question_pair)>& callback)
-{
-	onQuestionAddedCallback_ = callback;
-}
-
-void JankenHistory::invokeQuestionAddedCallback(const question_pair& question)
-{
-	if (onQuestionAddedCallback_) {
-		onQuestionAddedCallback_(question);
-	}
 }

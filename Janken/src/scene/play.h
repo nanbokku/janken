@@ -1,19 +1,21 @@
 #pragma once
 
-#include "scene_base.h"
+#include <HamFramework/SceneManager.hpp>
+
+#include "../constants/constants.h"
 
 // forward declaration
 class GameStateBase;
 
-class PlayScene : public SceneBase
+class PlayScene : public SceneManager<Constants::Scene>::Scene
 {
 public:
 	PlayScene(const InitData& data);
 	void update() override;
 	void draw() const override;
 
-	void initialize() override;
-	void exit() override;
+	void initialize();
+	void exit();
 
 private:
 	void changeState(const std::shared_ptr<GameStateBase>& state);

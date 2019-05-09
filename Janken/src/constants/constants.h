@@ -36,5 +36,7 @@ namespace Constants
 	struct Play
 	{
 		static constexpr int MaxCountdown = 3;
+		static constexpr int MaxWaitMs = 3000;
+		static constexpr int MaxNumOfQuestions = 10;
 	};
 }

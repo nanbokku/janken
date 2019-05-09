@@ -1,37 +1,32 @@
 #include "title.h"
 
-#include <memory>
-
 #include <Siv3D.hpp>
 
-TitleScene::TitleScene(const InitData& data) : SceneBase(data), title_font_(80, Typeface::Bold), start_btn_(SimpleGUI::ButtonRegionAt(Constants::Title::StartBtnStr, Vec2(Window::Width() / 2, Window::Height() * 3 / 4), 150))
+TitleScene::TitleScene(const InitData& data) : IScene(data), ui_controller_()
 {
 	initialize();
 }
 
 void TitleScene::update()
 {
-	// スタートボタンをクリック
-	if (start_btn_.leftClicked()) {
-		onSceneChanged(Constants::Scene::Play);
-	}
+	ui_controller_.update();
 }
 
 void TitleScene::draw() const
 {
-	// タイトル
-	title_font_(Constants::Title::TitleStr).draw(Arg::topCenter = Vec2(Window::Width() / 2, Window::Height() / 4));
-
-	// スタートボタン
-	// TODO: ボタンクラス作成する
-	//SimpleGUI::ButtonAt(Constants::Title::StartBtnStr, Vec2(Window::Width() / 2, Window::Height() * 3 / 4), 150);
-	start_btn_.draw();
+	ui_controller_.draw();
 }
 
 void TitleScene::initialize()
 {
 	ClearPrint();
 	Print << U"initialize title";
+
+	// スタートボタンクリック時のコールバック登録
+	ui_controller_.setStartBtnClickedCallback([&]() {
+		this->exit();
+		this->changeScene(Constants::Scene::Play);
+	});
 }
 
 void TitleScene::exit()

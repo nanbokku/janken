@@ -29,12 +29,14 @@ void GS_Countdown::update()
 		
 		stopwatch_.start();
 	}
+
+	ui_controller.update();
 }
 
 void GS_Countdown::draw()
 {
 	// カウントダウン表示
-	ui_controller.drawCountdown(count_);
+	ui_controller.draw(count_);
 }
 
 void GS_Countdown::exit()

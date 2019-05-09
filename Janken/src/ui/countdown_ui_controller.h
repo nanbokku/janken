@@ -8,11 +8,12 @@ public:
 	CountdownUIController();
 	~CountdownUIController() = default;
 
-	void drawCountdown(int);
+	void draw(int) const;
+	void update();
 
 private:
-	s3d::Font count_font_;
+	const s3d::Font count_font_;
 	
 	// int‚©‚çchar32_t‚Ö•ÏŠ·
-	char32_t int2chr32(int);
+	char32_t int2chr32(int) const;
 };

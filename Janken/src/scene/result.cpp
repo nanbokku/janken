@@ -1,6 +1,8 @@
 #include "result.h"
 
-ResultScene::ResultScene(const InitData& data) : SceneBase(data)
+#include <Siv3D.hpp>
+
+ResultScene::ResultScene(const InitData& data) : IScene(data)
 {
 	initialize();
 }
@@ -17,7 +19,7 @@ void ResultScene::draw() const
 
 void ResultScene::initialize()
 {
-
+	Print << U"result scene";
 }
 
 void ResultScene::exit()

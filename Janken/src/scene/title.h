@@ -1,18 +1,20 @@
 #pragma once
 
-#include "scene_base.h"
+#include <HamFramework/SceneManager.hpp>
 
-class TitleScene : public SceneBase
+#include "../ui/title_ui_controller.h"
+#include "../constants/constants.h"
+
+class TitleScene : public SceneManager<Constants::Scene>::Scene
 {
 public:
 	TitleScene(const InitData& data);
 	void update() override;
 	void draw() const override;
 
-	void initialize() override;
-	void exit() override;
+	void initialize();
+	void exit();
 
 private:
-	const Font title_font_;
-	const RectF start_btn_;
+	TitleUIController ui_controller_;
 };

@@ -2,7 +2,7 @@
 
 #include "../game_state/gs_countdown.h"
 
-PlayScene::PlayScene(const InitData& data) : SceneBase(data)
+PlayScene::PlayScene(const InitData& data) : IScene(data)
 {
 	initialize();
 }
@@ -39,11 +39,19 @@ void PlayScene::changeState(const std::shared_ptr<GameStateBase>& state)
 		current_state_->setStateFinishedCallback(nullptr);
 	}
 
+	// 次のステートがnullptrであればリザルトへ
+	if (state == nullptr) {
+		exit();
+		changeScene(Constants::Scene::Result);
+		return;
+	}
+
 	current_state_ = state;
 
 	// イベントの登録
 	current_state_->setStateFinishedCallback(
-		[&](std::shared_ptr<GameStateBase> state) {this->changeState(state); }
+		[&](std::shared_ptr<GameStateBase> state) {
+		this->changeState(state); }
 	);
 	
 	current_state_->initialize();

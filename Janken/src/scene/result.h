@@ -1,14 +1,16 @@
 #pragma once
 
-#include "scene_base.h"
+#include <HamFramework/SceneManager.hpp>
 
-class ResultScene : public SceneBase
+#include "../constants/constants.h"
+
+class ResultScene : public SceneManager<Constants::Scene>::Scene
 {
 public:
 	ResultScene(const InitData& data);
 	void update() override;
 	void draw() const override;
 
-	void initialize() override;
-	void exit() override;
+	void initialize();
+	void exit();
 };

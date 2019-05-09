@@ -2,12 +2,12 @@
 
 #include "game_state_base.h"
 
-// forward declaration
-class PlayUIController;
-namespace s3d
-{
-	class Stopwatch;
-}
+#include <Siv3D/Stopwatch.hpp>
+
+#include "../ui/play_ui_controller.h"
+#include "../store/janken_history.h"
+#include "../janken_generator.h"
+#include "../entity/player.h"
 
 class GS_Play : public GameStateBase
 {
@@ -20,6 +20,14 @@ public:
 	void exit() override;
 
 private:
-	std::unique_ptr<PlayUIController> ui_controller_;
-	std::unique_ptr<s3d::Stopwatch> stopwatch_;
+	// éüÇÃñ‚ëËÇ÷
+	void next();
+	// ñ‚ëËÇÃçÏê¨
+	void newQuestion();
+
+	PlayUIController ui_controller_;
+	JankenHistory history_;
+	JankenGenerator generator_;
+	Player player_;
+	s3d::Stopwatch stopwatch_;
 };

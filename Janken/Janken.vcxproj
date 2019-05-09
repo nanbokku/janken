@@ -202,6 +202,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\constants\constants.cpp" />
+    <ClCompile Include="src\entity\player.cpp" />
     <ClCompile Include="src\game_manager.cpp" />
     <ClCompile Include="src\game_state\gs_countdown.cpp" />
     <ClCompile Include="src\game_state\gs_play.cpp" />
@@ -212,6 +213,7 @@
     <ClCompile Include="src\scene\result.cpp" />
     <ClCompile Include="src\scene\title.cpp" />
     <ClCompile Include="src\ui\play_ui_controller.cpp" />
+    <ClCompile Include="src\ui\countdown_ui_controller.cpp" />
     <ClCompile Include="src\ui\title_ui_controller.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -283,6 +285,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\constants\constants.h" />
+    <ClInclude Include="src\entity\player.h" />
     <ClInclude Include="src\game_manager.h" />
     <ClInclude Include="src\game_state\game_state_base.h" />
     <ClInclude Include="src\game_state\gs_countdown.h" />
@@ -291,9 +294,9 @@
     <ClInclude Include="src\store\janken_history.h" />
     <ClInclude Include="src\scene\play.h" />
     <ClInclude Include="src\scene\result.h" />
-    <ClInclude Include="src\scene\scene_base.h" />
     <ClInclude Include="src\scene\title.h" />
     <ClInclude Include="src\ui\play_ui_controller.h" />
+    <ClInclude Include="src\ui\countdown_ui_controller.h" />
     <ClInclude Include="src\ui\title_ui_controller.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -11,15 +11,11 @@
     <ClCompile Include="src\constants\constants.cpp" />
     <ClCompile Include="src\ui\play_ui_controller.cpp" />
     <ClCompile Include="src\janken_generator.cpp" />
-<<<<<<< HEAD
     <ClCompile Include="src\store\janken_history.cpp" />
     <ClCompile Include="src\entity\player.cpp" />
     <ClCompile Include="src\ui\countdown_ui_controller.cpp" />
     <ClCompile Include="src\ui\title_ui_controller.cpp" />
     <ClCompile Include="src\ui\result_ui_controller.cpp" />
-=======
-    <ClCompile Include="src\janken_history.cpp" />
->>>>>>> origin/develop
   </ItemGroup>
   <ItemGroup>
     <None Include="common.props" />
@@ -99,14 +95,10 @@
     <ClInclude Include="src\constants\constants.h" />
     <ClInclude Include="src\ui\play_ui_controller.h" />
     <ClInclude Include="src\janken_generator.h" />
-<<<<<<< HEAD
     <ClInclude Include="src\store\janken_history.h" />
     <ClInclude Include="src\entity\player.h" />
     <ClInclude Include="src\ui\countdown_ui_controller.h" />
     <ClInclude Include="src\ui\title_ui_controller.h" />
     <ClInclude Include="src\ui\result_ui_controller.h" />
-=======
-    <ClInclude Include="src\janken_history.h" />
->>>>>>> origin/develop
   </ItemGroup>
 </Project>

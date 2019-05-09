@@ -207,11 +207,7 @@
     <ClCompile Include="src\game_state\gs_countdown.cpp" />
     <ClCompile Include="src\game_state\gs_play.cpp" />
     <ClCompile Include="src\janken_generator.cpp" />
-<<<<<<< HEAD
     <ClCompile Include="src\store\janken_history.cpp" />
-=======
-    <ClCompile Include="src\janken_history.cpp" />
->>>>>>> origin/develop
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\scene\play.cpp" />
     <ClCompile Include="src\scene\result.cpp" />
@@ -296,11 +292,7 @@
     <ClInclude Include="src\game_state\gs_countdown.h" />
     <ClInclude Include="src\game_state\gs_play.h" />
     <ClInclude Include="src\janken_generator.h" />
-<<<<<<< HEAD
     <ClInclude Include="src\store\janken_history.h" />
-=======
-    <ClInclude Include="src\janken_history.h" />
->>>>>>> origin/develop
     <ClInclude Include="src\scene\play.h" />
     <ClInclude Include="src\scene\result.h" />
     <ClInclude Include="src\scene\title.h" />

@@ -1,6 +1,6 @@
 #pragma once
 
-#include <functional>
+#include "../event/event.h"
 
 class ResultUIController
 {
@@ -11,18 +11,5 @@ public:
 	void draw() const;
 	void update();
 
-	void setStartBtnClickedCallback(const std::function<void(void)>& callback)
-	{
-		onStartBtnClicekedCallback_ = callback;
-	}
-
-private:
-	inline void invokeStartBtnClickedCallback()
-	{
-		if (onStartBtnClicekedCallback_) {
-			onStartBtnClicekedCallback_();
-		}
-	}
-
-	std::function<void(void)> onStartBtnClicekedCallback_;
+	Event<void, void> onStartBtnClickedCallback;
 };

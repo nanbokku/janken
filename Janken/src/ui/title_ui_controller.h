@@ -2,6 +2,8 @@
 
 #include <Siv3D.hpp>
 
+#include "../event/event.h"
+
 class TitleUIController
 {
 public:
@@ -11,20 +13,9 @@ public:
 	void draw() const;
 	void update();
 
-	void setStartBtnClickedCallback(const std::function<void(void)>& callback)
-	{
-		onStartBtnClickedCallback_ = callback;
-	}
+	Event<void, void> onStartBtnClickedCallback;
 
 private:
-	inline void invokeStartBtnClickedCallback()
-	{
-		if (onStartBtnClickedCallback_) {
-			onStartBtnClickedCallback_();
-		}
-	}
-
-	std::function<void(void)> onStartBtnClickedCallback_;
 	const Font title_font_;
 	const RectF start_btn_;
 };

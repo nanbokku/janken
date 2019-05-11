@@ -22,6 +22,6 @@ void TitleUIController::update()
 {
 	// スタートボタンをクリック
 	if (start_btn_.leftClicked()) {
-		invokeStartBtnClickedCallback();
+		onStartBtnClickedCallback.invoke();
 	}
 }

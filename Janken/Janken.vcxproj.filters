@@ -100,5 +100,6 @@
     <ClInclude Include="src\ui\countdown_ui_controller.h" />
     <ClInclude Include="src\ui\title_ui_controller.h" />
     <ClInclude Include="src\ui\result_ui_controller.h" />
+    <ClInclude Include="src\event\event.h" />
   </ItemGroup>
 </Project>

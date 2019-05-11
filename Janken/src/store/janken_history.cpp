@@ -11,7 +11,7 @@ void JankenHistory::push_back_question(const QuestionPair& question)
 {
 	questions_.push_back(question);
 
-	invokeQuestionAddedCallback(question);
+	onQuestionAddedCallback.invoke(question);
 }
 
 bool JankenHistory::addAnswer(const Constants::HandGesture hand)

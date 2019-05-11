@@ -37,7 +37,7 @@ void PlayScene::changeState(const std::shared_ptr<GameStateBase>& state)
 {
 	if (current_state_) {
 		current_state_->exit();
-		current_state_->setStateFinishedCallback(nullptr);
+		current_state_->onStateFinishedCallback.set(nullptr);
 	}
 
 	// 次のステートがnullptrであればリザルトへ
@@ -50,7 +50,7 @@ void PlayScene::changeState(const std::shared_ptr<GameStateBase>& state)
 	current_state_ = state;
 
 	// イベントの登録
-	current_state_->setStateFinishedCallback(
+	current_state_->onStateFinishedCallback.set(
 		[&](std::shared_ptr<GameStateBase> state) {
 		this->changeState(state); }
 	);

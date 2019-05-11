@@ -21,7 +21,7 @@ void GS_Countdown::update()
 		// カウントダウン終了
 		if (--count_ <= 0) {
 			// GS_Playステートへ移る
-			invokeStateFinishedCallback(std::make_shared<GS_Play>());
+			onStateFinishedCallback.invoke(std::make_shared<GS_Play>());
 			return;
 		}
 		

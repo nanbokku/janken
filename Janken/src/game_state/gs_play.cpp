@@ -14,7 +14,7 @@ void GS_Play::initialize()
 	Print << U"play state";
 
 	// 問題が生成されたときのコールバックを登録
-	history_.setQuestionAddedCallback([&](question_pair questions) {
+	history_.onQuestionAddedCallback.set([&](const question_pair& questions) {
 		this->player_.setActive(true);
 		this->stopwatch_.start();
 		this->ui_controller_.update(questions);
@@ -57,7 +57,7 @@ void GS_Play::next()
 {
 	if (history_.getTotalNumberOfQuestions() >= Constants::Play::MaxNumOfQuestions) {
 		// ステート終了
-		invokeStateFinishedCallback(nullptr);
+		onStateFinishedCallback.invoke(nullptr);
 		return;
 	}
 

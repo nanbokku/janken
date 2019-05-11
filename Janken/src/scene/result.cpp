@@ -23,7 +23,7 @@ void ResultScene::initialize()
 	Print << U"result scene";
 
 	// スタートボタンが押されたときのコールバックを登録
-	ui_controller_.setStartBtnClickedCallback([&] {
+	ui_controller_.onStartBtnClickedCallback.set([&] {
 		// タイトルに戻る
 		this->exit();
 		this->changeScene(Constants::Scene::Title);

@@ -1,6 +1,6 @@
 #pragma once
 
-#include <functional>
+#include "../event/event.h"
 
 class GameStateBase
 {
@@ -13,20 +13,6 @@ public:
 	virtual void draw() = 0;	// 毎フレーム
 	virtual void exit() = 0;	// ステートの終了時
 
-	inline void setStateFinishedCallback(const std::function<void(const std::shared_ptr<GameStateBase>&)>& callback)
-	{
-		onStateFinishedCallback_ = callback;
-	}
-
-protected:
-	inline void invokeStateFinishedCallback(const std::shared_ptr< GameStateBase>& state)
-	{
-				if (onStateFinishedCallback_) {
-			onStateFinishedCallback_(state);
-		}
-	}
-
-private:
 	// ステートが終了したときのコールバック
-	std::function<void(const std::shared_ptr<GameStateBase>&)> onStateFinishedCallback_;
+	Event<void, const std::shared_ptr<GameStateBase>&> onStateFinishedCallback;
 };

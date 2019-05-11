@@ -1,7 +1,8 @@
 #pragma once
 
-#include <functional>
+//#include <functional>
 
+#include "../event/event.h"
 #include"../constants/constants.h"
 
 class JankenHistory
@@ -28,25 +29,15 @@ public:
 		correct_answers_++;
 	}
 
-	void setQuestionAddedCallback(const std::function<void(const std::pair<Constants::HandGesture, bool>&)>& callback)
-	{
-		onQuestionAddedCallback_ = callback;
-	}
+
+	// 問題が追加されたときのコールバック
+	Event<void, const std::pair<Constants::HandGesture, bool>&> onQuestionAddedCallback;
 
 
 private:
 	// ジャンケンの強さ比較
 	int compare(Constants::HandGesture, Constants::HandGesture);
 
-	inline void invokeQuestionAddedCallback(const std::pair<Constants::HandGesture, bool>& question)
-	{
-		if (onQuestionAddedCallback_) {
-			onQuestionAddedCallback_(question);
-		}
-	}
-
-	// 問題が追加されたときのコールバック
-	std::function<void(const std::pair<Constants::HandGesture, bool>&)> onQuestionAddedCallback_;
 	std::vector<std::pair<Constants::HandGesture, bool>> questions_;
 	int correct_answers_;
 };

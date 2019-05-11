@@ -5,10 +5,15 @@
 #include <Siv3D.hpp>
 #include "../ui/countdown_ui_controller.h"
 
+namespace Constants
+{
+	struct Score;
+}
+
 class GS_Countdown : public GameStateBase
 {
 public:
-	GS_Countdown();
+	GS_Countdown(Constants::Score*);
 
 	void initialize() override;
 	void update() override;

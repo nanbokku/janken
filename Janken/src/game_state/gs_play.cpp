@@ -2,10 +2,11 @@
 
 #include "../store/janken_history.h"
 #include "../scene/result.h"
+#include "../constants/constants.h"
 
 using question_pair = std::pair<Constants::HandGesture, bool>;
 
-GS_Play::GS_Play() : GameStateBase(), ui_controller_(), history_(), generator_(), player_(), stopwatch_()
+GS_Play::GS_Play(Constants::Score* score) : GameStateBase(score), ui_controller_(), history_(), generator_(), player_(), stopwatch_()
 {
 }
 
@@ -40,7 +41,10 @@ void GS_Play::update()
 	// TODO: LeapMotion‚©‚çŽè‚ðŽæ“¾
 	// HandGesture hand = getHand()
 	// auto correct = history_.addAnswer(hand);
-	// if (correct) next();
+	// if (correct) {
+		//next();
+		//score_->correct_answers++;
+	//}
 }
 
 void GS_Play::draw()

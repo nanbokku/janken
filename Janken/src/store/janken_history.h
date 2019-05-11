@@ -33,7 +33,6 @@ public:
 	// 問題が追加されたときのコールバック
 	Event<void, const std::pair<Constants::HandGesture, bool>&> onQuestionAddedCallback;
 
-
 private:
 	// ジャンケンの強さ比較
 	int compare(Constants::HandGesture, Constants::HandGesture);

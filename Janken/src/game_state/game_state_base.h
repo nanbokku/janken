@@ -2,10 +2,19 @@
 
 #include "../event/event.h"
 
+// forward declaration
+namespace Constants
+{
+	struct Score;
+}
+
 class GameStateBase
 {
 public:
-	GameStateBase() = default;
+	GameStateBase(Constants::Score* score)
+	{
+		score_ = score;
+	}
 	virtual ~GameStateBase() = default;
 
 	virtual void initialize() = 0;	// ステートの開始時によぶ
@@ -15,4 +24,8 @@ public:
 
 	// ステートが終了したときのコールバック
 	Event<void, const std::shared_ptr<GameStateBase>&> onStateFinishedCallback;
+
+protected:
+	// 共有データアクセス用
+	Constants::Score* score_;
 };

@@ -3,7 +3,7 @@
 #include "gs_play.h"
 #include "../constants/constants.h"
 
-GS_Countdown::GS_Countdown() : GameStateBase(),  stopwatch_(), count_(Constants::Play::MaxCountdown)
+GS_Countdown::GS_Countdown(Constants::Score* score) : GameStateBase(score),  stopwatch_(), count_(Constants::Play::MaxCountdown)
 {
 }
 
@@ -21,7 +21,7 @@ void GS_Countdown::update()
 		// カウントダウン終了
 		if (--count_ <= 0) {
 			// GS_Playステートへ移る
-			onStateFinishedCallback.invoke(std::make_shared<GS_Play>());
+			onStateFinishedCallback.invoke(std::make_shared<GS_Play>(score_));
 			return;
 		}
 		

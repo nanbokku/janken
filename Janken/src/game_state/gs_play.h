@@ -8,11 +8,17 @@
 #include "../store/janken_history.h"
 #include "../janken_generator.h"
 #include "../entity/player.h"
+#include "../event/event.h"
+
+namespace Constants
+{
+	struct Score;
+}
 
 class GS_Play : public GameStateBase
 {
 public:
-	GS_Play();
+	GS_Play(Constants::Score*);
 
 	void initialize() override;
 	void update() override;
@@ -29,5 +35,5 @@ private:
 	JankenHistory history_;
 	JankenGenerator generator_;
 	Player player_;
-	s3d::Stopwatch stopwatch_;
+	Stopwatch stopwatch_;
 };

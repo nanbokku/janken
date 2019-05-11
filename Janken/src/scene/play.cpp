@@ -23,7 +23,8 @@ void PlayScene::initialize()
 	ClearPrint();
 	Print << U"initialize play";
 
-	changeState(std::make_shared<GS_Countdown>());
+	auto score = &getData();
+	changeState(std::make_shared<GS_Countdown>(score));
 }
 
 void PlayScene::exit()

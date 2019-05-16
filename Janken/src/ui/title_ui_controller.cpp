@@ -1,10 +1,8 @@
 #include "title_ui_controller.h"
-
 #include "../constants/constants.h"
 
 TitleUIController::TitleUIController() : title_font_(80, Typeface::Bold), start_btn_(SimpleGUI::ButtonRegionAt(Constants::Title::StartBtnStr, Vec2(Window::Width() / 2, Window::Height() * 3 / 4), 150))
 {
-
 }
 
 void TitleUIController::draw() const
@@ -14,8 +12,7 @@ void TitleUIController::draw() const
 
 	// スタートボタン
 	// TODO: ボタンクラス作成する
-	//SimpleGUI::ButtonAt(Constants::Title::StartBtnStr, Vec2(Window::Width() / 2, Window::Height() * 3 / 4), 150);
-	start_btn_.draw();
+	SimpleGUI::ButtonAt(Constants::Title::StartBtnStr, Vec2(Window::Width() / 2, Window::Height() * 3 / 4), 150);
 }
 
 void TitleUIController::update()

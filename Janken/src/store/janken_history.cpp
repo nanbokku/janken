@@ -30,10 +30,18 @@ bool JankenHistory::addAnswer(const Constants::HandGesture hand)
 
 int JankenHistory::compare(const Constants::HandGesture hand1, const Constants::HandGesture hand2)
 {
-	// TODO
-	// ‹­‚³‚ªhand1 > hand2‚Ì‚Æ‚« return 1
-	// hand1 == hand2 return 0
-	// hand1 < hand2 return -1
-
-	return 1;
+	// Ÿ‚¿•‰‚¯”»’è	
+	// Ÿ‚¿F‚PCˆø•ªF‚OC•‰‚¯F|‚P‚ğ•Ô‚·
+	int hand_int1 = static_cast<int>(hand1), hand_int2 = static_cast<int>(hand2);
+	if (abs(hand_int1 - hand_int2) == 1) {
+		if (hand_int1 < hand_int2) return 1;
+		else return -1;
+	}
+	else if (hand_int1 == hand_int2) {
+		return 0;
+	}
+	else {
+		if (hand_int1 < hand_int2) return -1;
+		else return 1;
+	}
 }

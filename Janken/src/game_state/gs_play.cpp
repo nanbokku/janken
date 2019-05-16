@@ -70,6 +70,7 @@ void GS_Play::next()
 
 void GS_Play::newQuestion()
 {	
+	// TODO: ˜A‘±‚µ‚Ä‘S‚­“¯‚¶–â‘è‚É‚È‚ç‚È‚¢‚æ‚¤‚É‚·‚é
 	auto hand = generator_.randomHand();
 	auto is_winning = generator_.isWinningOrLosing();
 	auto question = question_pair(hand, is_winning);

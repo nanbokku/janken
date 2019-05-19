@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <Siv3D.hpp>
 
@@ -25,7 +25,9 @@ namespace Constants
 		None
 	};
 
-	constexpr Size WindowSize(800, 600);
+	constexpr Size WindowSize(1200, 900);
+	constexpr ColorF BackgroundColor(0.3, 0.6, 1.0);
+	constexpr ColorF ShadowColor(0.0, 0.5);
 
 	struct Score
 	{
@@ -36,6 +38,9 @@ namespace Constants
 	{
 		static const String TitleStr;
 		static const String StartBtnStr;
+		static const Vec2 TitleCenterPos;
+		static const Vec2 StartBtnCenterPos;
+		static constexpr Color TitleColor = Palette::White;
 	};
 
 	struct Play

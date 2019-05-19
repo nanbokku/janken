@@ -26,6 +26,8 @@ void GameManager::initialize()
 	Window::Resize(Constants::WindowSize);
 	Window::Centering();
 
+	Graphics::SetBackground(Constants::BackgroundColor);
+
 	manager_->add<TitleScene>(Constants::Scene::Title);
 	manager_->add<PlayScene>(Constants::Scene::Play);
 	manager_->add<ResultScene>(Constants::Scene::Result);

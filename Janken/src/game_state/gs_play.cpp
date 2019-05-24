@@ -70,10 +70,11 @@ void GS_Play::next()
 
 void GS_Play::newQuestion()
 {	
-	// TODO: ˜A‘±‚µ‚Ä‘S‚­“¯‚¶–â‘è‚É‚È‚ç‚È‚¢‚æ‚¤‚É‚·‚é
-	auto hand = generator_.randomHand();
+	for (hand1=hand2; hand1 == hand2;) {
+		hand2 = generator_.randomHand();
+	}
 	auto is_winning = generator_.isWinningOrLosing();
-	auto question = question_pair(hand, is_winning);
+	auto question = question_pair(hand2, is_winning);
 	
 	history_.push_back_question(question);
 

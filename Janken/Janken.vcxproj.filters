@@ -16,6 +16,7 @@
     <ClCompile Include="src\ui\countdown_ui_controller.cpp" />
     <ClCompile Include="src\ui\title_ui_controller.cpp" />
     <ClCompile Include="src\ui\result_ui_controller.cpp" />
+    <ClCompile Include="src\audio_manager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="common.props" />
@@ -80,6 +81,9 @@
   <ItemGroup>
     <Media Include="App\example\shot.mp3" />
     <Media Include="App\example\test.mp3" />
+    <Media Include="wav\audio_16380.wav" />
+    <Media Include="wav\audio_16385.wav" />
+    <Media Include="wav\audio_16388.wav" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="App\example\test.xml" />
@@ -101,5 +105,6 @@
     <ClInclude Include="src\ui\title_ui_controller.h" />
     <ClInclude Include="src\ui\result_ui_controller.h" />
     <ClInclude Include="src\event\event.h" />
+    <ClInclude Include="src\audio_manager.h" />
   </ItemGroup>
 </Project>

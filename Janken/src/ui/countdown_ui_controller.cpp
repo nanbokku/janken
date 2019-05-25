@@ -2,7 +2,7 @@
 
 #include <Siv3D.hpp>
 
-CountdownUIController::CountdownUIController() : count_font_(80, Typeface::Bold)
+CountdownUIController::CountdownUIController() : count_font_(200, Typeface::Bold)
 {
 
 }

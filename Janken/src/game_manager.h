@@ -24,7 +24,7 @@ class GameManager
 public:
 	GameManager(const GameManager&) = delete;
 	GameManager operator=(const GameManager&) = delete;
-	GameManager(GameManager&&) = delete;
+	GameManager(const GameManager&&) = delete;
 	GameManager& operator=(const GameManager&&) = delete;
 
 	void initialize();

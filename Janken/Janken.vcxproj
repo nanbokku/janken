@@ -201,6 +201,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\audio_manager.cpp" />
     <ClCompile Include="src\constants\constants.cpp" />
     <ClCompile Include="src\entity\player.cpp" />
     <ClCompile Include="src\game_manager.cpp" />
@@ -280,11 +281,15 @@
   <ItemGroup>
     <Media Include="App\example\shot.mp3" />
     <Media Include="App\example\test.mp3" />
+    <Media Include="wav\audio_16380.wav" />
+    <Media Include="wav\audio_16385.wav" />
+    <Media Include="wav\audio_16388.wav" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="App\example\test.xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\audio_manager.h" />
     <ClInclude Include="src\constants\constants.h" />
     <ClInclude Include="src\entity\player.h" />
     <ClInclude Include="src\event\event.h" />

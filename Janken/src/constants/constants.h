@@ -49,4 +49,10 @@ namespace Constants
 		static constexpr int MaxWaitMs = 3000;
 		static constexpr int MaxNumOfQuestions = 10;
 	};
+
+	struct Audio
+	{
+		static const String JankenponStr;
+		static const String PonStr;
+	};
 }

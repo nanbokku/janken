@@ -16,6 +16,6 @@ private:
 	bool question_flg_;
 	
 	const Font question_font_;
-	const std::vector<Texture> Hand_Texture = { Texture(Emoji(U"✊")), Texture(Emoji(U"✌")), Texture(Emoji(U"✋")) };
-	const std::vector<String> Question_Str = { U"勝ってください", U"負けてください" };
+	const std::vector<Texture> handTexture = { Texture(Emoji(U"✊")), Texture(Emoji(U"✌")), Texture(Emoji(U"✋")) };
+	const std::vector<String> questionStr = { U"勝ってください", U"負けてください" };
 };

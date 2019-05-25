@@ -3,11 +3,14 @@
 #include "../store/janken_history.h"
 #include "../scene/result.h"
 #include "../constants/constants.h"
+#include "../audio_manager.h"
 
 using question_pair = std::pair<Constants::HandGesture, bool>;
 
 GS_Play::GS_Play(Constants::Score* score) : GameStateBase(score), ui_controller_(), history_(), generator_(), player_(), stopwatch_()
 {
+	// 画面の初期化
+	System::Update();
 }
 
 void GS_Play::initialize()
@@ -19,6 +22,11 @@ void GS_Play::initialize()
 		this->player_.setActive(true);
 		this->stopwatch_.start();
 		this->ui_controller_.update(questions);
+
+		std::thread([] {
+			System::Sleep(1000);
+			AudioManager::Instance().playSE(Constants::Audio::PonStr);
+		}).detach();
 	});
 
 	player_.setActive(false);
@@ -59,6 +67,9 @@ void GS_Play::exit()
 
 void GS_Play::next()
 {
+	// 画面初期化
+	System::Update();
+
 	if (history_.getTotalNumberOfQuestions() >= Constants::Play::MaxNumOfQuestions) {
 		// ステート終了
 		onStateFinishedCallback.invoke(nullptr);
@@ -75,7 +86,9 @@ void GS_Play::newQuestion()
 	}
 	auto is_winning = generator_.isWinningOrLosing();
 	auto question = question_pair(hand2, is_winning);
-	
+
+	AudioManager::Instance().playSE(Constants::Audio::JankenponStr);
+
 	history_.push_back_question(question);
 
 	Print << U"add question";

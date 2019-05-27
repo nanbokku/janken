@@ -1,6 +1,6 @@
 #include "play_ui_controller.h"
 
-PlayUIController::PlayUIController(): question_font_(50, Typeface::Bold)
+PlayUIController::PlayUIController(): question_font_(80, Typeface::Bold)
 {
 
 }
@@ -13,7 +13,7 @@ void PlayUIController::draw() const
 
 	// Žè‚ð•`‰æ
 	int index = static_cast<int>(hand_);
-	handTexture[index].scaled(2.0).drawAt(Window::Width() / 2, Window::Height() / 2);
+	handTexture[index].scaled(3.0).drawAt(Window::Width() / 2, Window::Height() / 2);
 }
 
 void PlayUIController::update(const std::pair<Constants::HandGesture, bool>& question)

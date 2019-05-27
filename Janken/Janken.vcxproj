@@ -143,10 +143,13 @@
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <MinimalRebuild>false</MinimalRebuild>
+      <AdditionalIncludeDirectories>E:\libraries\LeapSDK\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>E:\libraries\LeapSDK\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Leap.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /I /D /Y "$(OutDir)$(TargetFileName)" "$(ProjectDir)App"</Command>
@@ -208,6 +211,7 @@
     <ClCompile Include="src\game_state\gs_countdown.cpp" />
     <ClCompile Include="src\game_state\gs_play.cpp" />
     <ClCompile Include="src\janken_generator.cpp" />
+    <ClCompile Include="src\LeapFinger.cpp" />
     <ClCompile Include="src\store\janken_history.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\scene\play.cpp" />
@@ -298,6 +302,7 @@
     <ClInclude Include="src\game_state\gs_countdown.h" />
     <ClInclude Include="src\game_state\gs_play.h" />
     <ClInclude Include="src\janken_generator.h" />
+    <ClInclude Include="src\LeapFinger.h" />
     <ClInclude Include="src\store\janken_history.h" />
     <ClInclude Include="src\scene\play.h" />
     <ClInclude Include="src\scene\result.h" />

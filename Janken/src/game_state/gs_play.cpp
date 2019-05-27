@@ -7,7 +7,7 @@
 
 using question_pair = std::pair<Constants::HandGesture, bool>;
 
-GS_Play::GS_Play(Constants::Score* score) : GameStateBase(score), ui_controller_(), history_(), generator_(), player_(), stopwatch_()
+GS_Play::GS_Play(Constants::Score* score) : GameStateBase(score), ui_controller_(), history_(), generator_(), player_(), stopwatch_(), leap_()
 {
 	// ‰æ–Ê‚Ì‰Šú‰»
 	System::Update();
@@ -46,13 +46,14 @@ void GS_Play::update()
 		return;
 	}
 
-	// TODO: LeapMotion‚©‚çŽè‚ðŽæ“¾
-	// HandGesture hand = getHand()
-	// auto correct = history_.addAnswer(hand);
-	// if (correct) {
-		//next();
-		//score_->correct_answers++;
-	//}
+	// LeapMotion‚©‚çŽè‚ðŽæ“¾
+	auto hand = leap_.get();
+	auto correct = history_.addAnswer(hand);
+
+	if (correct) {
+		next();
+		score_->correct_answers++;
+	}
 }
 
 void GS_Play::draw()

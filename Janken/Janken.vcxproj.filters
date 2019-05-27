@@ -17,6 +17,7 @@
     <ClCompile Include="src\ui\title_ui_controller.cpp" />
     <ClCompile Include="src\ui\result_ui_controller.cpp" />
     <ClCompile Include="src\audio_manager.cpp" />
+    <ClCompile Include="src\LeapFinger.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="common.props" />
@@ -106,5 +107,6 @@
     <ClInclude Include="src\ui\result_ui_controller.h" />
     <ClInclude Include="src\event\event.h" />
     <ClInclude Include="src\audio_manager.h" />
+    <ClInclude Include="src\LeapFinger.h" />
   </ItemGroup>
 </Project>

@@ -9,6 +9,7 @@
 #include "../janken_generator.h"
 #include "../entity/player.h"
 #include "../event/event.h"
+#include "../LeapFinger.h"
 
 namespace Constants
 {
@@ -34,6 +35,7 @@ private:
 	PlayUIController ui_controller_;
 	JankenHistory history_;
 	JankenGenerator generator_;
+	LeapFinger leap_;
 	Player player_;
 	Stopwatch stopwatch_;
 };

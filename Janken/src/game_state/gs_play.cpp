@@ -5,6 +5,8 @@
 #include "../constants/constants.h"
 #include "../audio_manager.h"
 
+#define STR(var) #var
+
 using question_pair = std::pair<Constants::HandGesture, bool>;
 
 GS_Play::GS_Play(Constants::Score* score) : GameStateBase(score), ui_controller_(), history_(), generator_(), player_(), stopwatch_(), leap_()
@@ -50,6 +52,8 @@ void GS_Play::update()
 	auto hand = leap_.get();
 	auto correct = history_.addAnswer(hand);
 
+	if (correct) Print << U"correct";
+
 	if (correct) {
 		next();
 		score_->correct_answers++;
@@ -68,6 +72,8 @@ void GS_Play::exit()
 
 void GS_Play::next()
 {
+	stopwatch_.reset();
+
 	// âÊñ èâä˙âª
 	System::Update();
 

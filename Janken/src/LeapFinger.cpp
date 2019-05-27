@@ -3,16 +3,13 @@
 #include <iostream>
 #include <fstream>
 #include <string.h>
-#include "Leap.h"
 
 using namespace Leap;
 
 Constants::HandGesture LeapFinger::get()
 {
-	Controller controller;
-
 	int countFingers = 0;
-	Leap::Frame frame = controller.frame();
+	Leap::Frame frame = controller_.frame();
 	Leap::HandList hands = frame.hands();
 	Leap::FingerList fingers = frame.fingers();
 

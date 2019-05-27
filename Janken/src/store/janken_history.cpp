@@ -16,6 +16,8 @@ void JankenHistory::push_back_question(const QuestionPair& question)
 
 bool JankenHistory::addAnswer(const Constants::HandGesture hand)
 {
+	if (hand == Constants::HandGesture::None) return false;
+
 	auto result = compare(hand, questions_.back().first);
 	auto question = questions_.back().second;
 

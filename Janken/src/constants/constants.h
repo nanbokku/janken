@@ -31,8 +31,10 @@ namespace Constants
 
 	struct Score
 	{
-		int correct_answers = 0;
+		int correct_answers;
+		
 	};
+
 
 	struct Title
 	{
@@ -48,6 +50,15 @@ namespace Constants
 		static constexpr int MaxCountdown = 3;
 		static constexpr int MaxWaitMs = 3000;
 		static constexpr int MaxNumOfQuestions = 10;
+	};
+
+	struct Result
+	{
+		static const String ResultStr;
+		static const String ReturnBtnStr;
+		static const Vec2 ResultCenterPos;
+		static const Vec2 ReturnBtnCenterPos;
+		static constexpr Color ResultColor = Palette::White;
 	};
 
 	struct Audio

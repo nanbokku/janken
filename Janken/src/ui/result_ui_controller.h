@@ -1,5 +1,7 @@
 #pragma once
 
+#include <Siv3D.hpp>
+
 #include "../event/event.h"
 
 class ResultUIController
@@ -12,4 +14,8 @@ public:
 	void update();
 
 	Event<void, void> onStartBtnClickedCallback;
+
+private:
+	const Font result_font_;
+	const RectF return_btn_;
 };

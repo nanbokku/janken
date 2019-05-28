@@ -20,7 +20,7 @@ class GS_Play : public GameStateBase
 {
 public:
 	GS_Play(Constants::Score*);
-	Constants::HandGesture hand1, hand2;
+	Constants::HandGesture prev_hand, new_hand;
 	void initialize() override;
 	void update() override;
 	void draw() override;

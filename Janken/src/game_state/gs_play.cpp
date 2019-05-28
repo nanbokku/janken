@@ -17,6 +17,7 @@ void GS_Play::initialize()
 {
 	Print << U"play state";
 
+
 	// 問題が生成されたときのコールバックを登録
 	history_.onQuestionAddedCallback.set([&](const question_pair& questions) {
 		this->player_.setActive(true);

@@ -16,6 +16,8 @@ void JankenHistory::push_back_question(const QuestionPair& question)
 
 bool JankenHistory::addAnswer(const Constants::HandGesture hand)
 {
+	if (hand == Constants::HandGesture::None) return false;
+
 	auto result = compare(hand, questions_.back().first);
 	auto question = questions_.back().second;
 
@@ -40,7 +42,7 @@ int JankenHistory::compare(const Constants::HandGesture hand1, const Constants::
 	else if (hand_int1 == hand_int2) {
 		return 0;
 	}
-	else {
+	else if (abs(hand_int1 - hand_int2)==2){
 		if (hand_int1 < hand_int2) return -1;
 		else return 1;
 	}

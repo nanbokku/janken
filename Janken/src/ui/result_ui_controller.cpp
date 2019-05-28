@@ -13,6 +13,7 @@ void ResultUIController::draw() const
 	// 正解数の表示
 	result_font_(Constants::Result::ResultStr).draw(Arg::center = Constants::Result::ResultCenterPos.movedBy(1.5, 2), Constants::ShadowColor);   // 影をつける
 	result_font_(Constants::Result::ResultStr).draw(Arg::center = Constants::Result::ResultCenterPos, Constants::Result::ResultColor);
+	//printf("%d", Constants::Score::correct_answers);
 	
 
 	// タイトルに戻るボタン表示

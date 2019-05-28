@@ -83,11 +83,11 @@ void GS_Play::next()
 
 void GS_Play::newQuestion()
 {	
-	for (hand1=hand2; hand1 == hand2;) {
-		hand2 = generator_.randomHand();
+	for (prev_hand = new_hand; prev_hand == new_hand;) {
+		new_hand = generator_.randomHand();
 	}
 	auto is_winning = generator_.isWinningOrLosing();
-	auto question = question_pair(hand2, is_winning);
+	auto question = question_pair(new_hand, is_winning);
 
 	AudioManager::Instance().playSE(Constants::Audio::JankenponStr);
 

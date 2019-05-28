@@ -35,6 +35,7 @@ namespace Constants
 		
 	};
 
+
 	struct Title
 	{
 		static const String TitleStr;

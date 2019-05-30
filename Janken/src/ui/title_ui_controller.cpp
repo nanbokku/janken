@@ -11,7 +11,7 @@ void TitleUIController::draw() const
 	// タイトル
 	title_font_(Constants::Title::TitleStr).draw(Arg::center = Constants::Title::TitleCenterPos.movedBy(1.5, 2), Constants::ShadowColor);   // 影をつける
 	title_font_(Constants::Title::TitleStr).draw(Arg::center = Constants::Title::TitleCenterPos, Constants::Title::TitleColor);
-
+	
 	// スタートボタン
 	// TODO: ボタンクラス作成する
 	SimpleGUI::ButtonAt(Constants::Title::StartBtnStr, Constants::Title::StartBtnCenterPos, 300);

@@ -43,7 +43,7 @@ void GS_Play::update()
 	if (stopwatch_.isRunning() && stopwatch_.ms() > Constants::Play::MaxWaitMs) {
 		stopwatch_.reset();
 		player_.setActive(false);
-
+		score_->time_score += Constants::Play::MaxWaitMs;
 		// ŽŸ‚Ì–â‘è‚Ö
 		next();
 		return;
@@ -57,6 +57,7 @@ void GS_Play::update()
 
 	if (correct) {
 		next();
+		score_->time_score += stopwatch_.ms();
 		score_->correct_answers++;
 	}
 }

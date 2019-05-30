@@ -10,6 +10,7 @@ ResultScene::ResultScene(const InitData& data) : IScene(data), ui_controller_()
 
 void ResultScene::update()
 {
+	
 	ui_controller_.update();
 }
 
@@ -17,6 +18,17 @@ void ResultScene::draw() const
 {
 	ui_controller_.draw();
 }
+
+int ResultScene::ResultScore()
+{
+	Constants::Score& data = getData();	// Scoreç\ë¢ëÃ
+	auto count = data.correct_answers;
+	auto time = data.time_score;
+	ui_controller_.result_score = count / time + 100;
+	return  (count *10000 /time);
+}
+
+
 
 void ResultScene::initialize()
 {

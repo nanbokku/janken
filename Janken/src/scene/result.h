@@ -16,8 +16,8 @@ class ResultScene : public SceneManager<Constants::Scene, Constants::Score>::Sce
 public:
 	ResultScene(const InitData& data);
 	void update() override;
-	void draw() const override;
-
+	void draw()  const override;
+	int ResultScore();
 	void initialize();
 	void exit();
 

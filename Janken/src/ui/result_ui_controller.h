@@ -4,7 +4,8 @@
 
 #include "../event/event.h"
 
-class ResultUIController
+
+class ResultUIController  
 {
 public:
 	ResultUIController();
@@ -12,7 +13,7 @@ public:
 
 	void draw() const;
 	void update();
-
+	int result_score;
 	Event<void, void> onStartBtnClickedCallback;
 
 private:

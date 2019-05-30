@@ -64,6 +64,7 @@ namespace Constants
 	struct Audio
 	{
 		static const String JankenponStr;
-		static const String PonStr;
+		static const String CorrectStr;
+		static const String IncorrectStr;
 	};
 }

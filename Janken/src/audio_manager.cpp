@@ -7,6 +7,14 @@ AudioManager::AudioManager()
 	AudioAsset::Register(U"jan", janPath, AssetParameter::LoadImmediately());
 	AudioAsset::Register(U"ken", kenPath, AssetParameter::LoadImmediately());
 	AudioAsset::Register(U"pon", ponPath, AssetParameter::LoadImmediately());
+
+	for (auto path : sePaths) {
+		auto path_i = path.lastIndexOf(U"/") + 1;
+		auto ext_i = path.lastIndexOf(U".");
+		auto name = path.substr(path_i, ext_i - path_i);
+
+		AudioAsset::Register(name, path, AssetParameter::LoadImmediately());
+	}
 }
 
 AudioManager::~AudioManager()
@@ -28,6 +36,15 @@ void AudioManager::playSE(const String& name)
 void AudioManager::playBGM(const String& name)
 {
 
+}
+
+double AudioManager::getLengthSec(const String& name)
+{
+	const auto audio = AudioAsset(name);
+
+	if (audio.isEmpty()) return 0;
+
+	return audio.lengthSec();
 }
 
 void AudioManager::playJankenpon()

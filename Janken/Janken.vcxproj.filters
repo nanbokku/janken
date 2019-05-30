@@ -12,7 +12,6 @@
     <ClCompile Include="src\ui\play_ui_controller.cpp" />
     <ClCompile Include="src\janken_generator.cpp" />
     <ClCompile Include="src\store\janken_history.cpp" />
-    <ClCompile Include="src\entity\player.cpp" />
     <ClCompile Include="src\ui\countdown_ui_controller.cpp" />
     <ClCompile Include="src\ui\title_ui_controller.cpp" />
     <ClCompile Include="src\ui\result_ui_controller.cpp" />
@@ -85,6 +84,8 @@
     <Media Include="wav\audio_16380.wav" />
     <Media Include="wav\audio_16385.wav" />
     <Media Include="wav\audio_16388.wav" />
+    <Media Include="wav\correct2.mp3" />
+    <Media Include="wav\incorrect1.mp3" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="App\example\test.xml" />
@@ -101,7 +102,6 @@
     <ClInclude Include="src\ui\play_ui_controller.h" />
     <ClInclude Include="src\janken_generator.h" />
     <ClInclude Include="src\store\janken_history.h" />
-    <ClInclude Include="src\entity\player.h" />
     <ClInclude Include="src\ui\countdown_ui_controller.h" />
     <ClInclude Include="src\ui\title_ui_controller.h" />
     <ClInclude Include="src\ui\result_ui_controller.h" />

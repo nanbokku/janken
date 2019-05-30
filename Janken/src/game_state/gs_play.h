@@ -7,7 +7,6 @@
 #include "../ui/play_ui_controller.h"
 #include "../store/janken_history.h"
 #include "../janken_generator.h"
-#include "../entity/player.h"
 #include "../event/event.h"
 #include "../LeapFinger.h"
 
@@ -28,7 +27,7 @@ public:
 
 private:
 	// Ÿ‚Ì–â‘è‚Ö
-	void next();
+	void next(bool);
 	// –â‘è‚Ìì¬
 	void newQuestion();
 
@@ -36,6 +35,7 @@ private:
 	JankenHistory history_;
 	JankenGenerator generator_;
 	LeapFinger leap_;
-	Player player_;
 	Stopwatch stopwatch_;
+	bool is_active_;
+	std::mutex mtx_;
 };

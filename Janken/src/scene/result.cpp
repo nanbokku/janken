@@ -32,4 +32,5 @@ void ResultScene::initialize()
 
 void ResultScene::exit()
 { 
+	ui_controller_.onStartBtnClickedCallback.unset();
 }

@@ -208,7 +208,6 @@
   <ItemGroup>
     <ClCompile Include="src\audio_manager.cpp" />
     <ClCompile Include="src\constants\constants.cpp" />
-    <ClCompile Include="src\entity\player.cpp" />
     <ClCompile Include="src\game_manager.cpp" />
     <ClCompile Include="src\game_state\gs_countdown.cpp" />
     <ClCompile Include="src\game_state\gs_play.cpp" />
@@ -290,6 +289,8 @@
     <Media Include="wav\audio_16380.wav" />
     <Media Include="wav\audio_16385.wav" />
     <Media Include="wav\audio_16388.wav" />
+    <Media Include="wav\correct2.mp3" />
+    <Media Include="wav\incorrect1.mp3" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="App\example\test.xml" />
@@ -297,7 +298,6 @@
   <ItemGroup>
     <ClInclude Include="src\audio_manager.h" />
     <ClInclude Include="src\constants\constants.h" />
-    <ClInclude Include="src\entity\player.h" />
     <ClInclude Include="src\event\event.h" />
     <ClInclude Include="src\game_manager.h" />
     <ClInclude Include="src\game_state\game_state_base.h" />

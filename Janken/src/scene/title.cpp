@@ -32,4 +32,6 @@ void TitleScene::initialize()
 void TitleScene::exit()
 {
 	Print << U"exit title";
+
+	ui_controller_.onStartBtnClickedCallback.unset();
 }

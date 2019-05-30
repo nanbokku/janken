@@ -9,7 +9,7 @@
 
 using question_pair = std::pair<Constants::HandGesture, bool>;
 
-GS_Play::GS_Play(Constants::Score* score) : GameStateBase(score), ui_controller_(), history_(), generator_(), player_(), stopwatch_(), leap_()
+GS_Play::GS_Play(Constants::Score* score) : GameStateBase(score), ui_controller_(), history_(), generator_(), stopwatch_(), leap_(), is_active_(false)
 {
 	// 画面の初期化
 	System::Update();
@@ -19,33 +19,28 @@ void GS_Play::initialize()
 {
 	Print << U"play state";
 
-
 	// 問題が生成されたときのコールバックを登録
 	history_.onQuestionAddedCallback.set([&](const question_pair& questions) {
-		this->player_.setActive(true);
+		is_active_ = true;
 		this->stopwatch_.start();
 		this->ui_controller_.update(questions);
-
-		std::thread([] {
-			System::Sleep(1000);
-			AudioManager::Instance().playSE(Constants::Audio::PonStr);
-		}).detach();
 	});
 
-	player_.setActive(false);
+	is_active_ = false;
 
 	newQuestion();
 }
 
 void GS_Play::update()
 {
+	std::lock_guard<std::mutex> lock(mtx_);
+
+	if (!is_active_) return;
+
 	// 時間切れ
 	if (stopwatch_.isRunning() && stopwatch_.ms() > Constants::Play::MaxWaitMs) {
-		stopwatch_.reset();
-		player_.setActive(false);
-
 		// 次の問題へ
-		next();
+		next(false);
 		return;
 	}
 
@@ -56,8 +51,9 @@ void GS_Play::update()
 	if (correct) Print << U"correct";
 
 	if (correct) {
-		next();
 		score_->correct_answers++;
+
+		next(correct);
 	}
 }
 
@@ -68,27 +64,40 @@ void GS_Play::draw()
 
 void GS_Play::exit()
 {
-
+	// コールバック関数のunset
+	history_.onQuestionAddedCallback.unset();
 }
 
-void GS_Play::next()
+void GS_Play::next(const bool correct)
 {
 	stopwatch_.reset();
+	is_active_ = false;
 
-	// 画面初期化
-	System::Update();
+	ui_controller_.update(correct);
 
-	if (history_.getTotalNumberOfQuestions() >= Constants::Play::MaxNumOfQuestions) {
-		// ステート終了
-		onStateFinishedCallback.invoke(nullptr);
-		return;
-	}
+	auto audio_str = correct ? Constants::Audio::CorrectStr : Constants::Audio::IncorrectStr;
+	double wait = AudioManager::Instance().getLengthSec(audio_str) + 0.5;
+	AudioManager::Instance().playSE(audio_str);
 
-	newQuestion();
+	// コルーチン代わり
+	std::thread([&](double sec) {
+		std::lock_guard<std::mutex> lock(mtx_);
+
+		// 正解/不正解の音が終了するまで待つ
+		std::this_thread::sleep_for(std::chrono::duration<double>(sec));
+
+		if (history_.getTotalNumberOfQuestions() >= Constants::Play::MaxNumOfQuestions) {
+			// ステート終了
+			onStateFinishedCallback.invoke(nullptr);
+			return;
+		}
+
+		newQuestion();
+	}, wait).detach();
 }
 
 void GS_Play::newQuestion()
-{	
+{
 	for (prev_hand = new_hand; prev_hand == new_hand;) {
 		new_hand = generator_.randomHand();
 	}

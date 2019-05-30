@@ -11,6 +11,11 @@ public:
 		callback_ = callback;
 	}
 
+	void unset()
+	{
+		callback_ = nullptr;
+	}
+
 	inline ret invoke(arg rhs = arg())
 	{
 		if (callback_) {
@@ -29,6 +34,11 @@ public:
 	void set(const std::function<void()>& callback)
 	{
 		callback_ = callback;
+	}
+
+	void unset()
+	{
+		callback_ = nullptr;
 	}
 
 	inline void invoke()

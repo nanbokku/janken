@@ -32,6 +32,8 @@ void PlayScene::exit()
 	Print << U"exit play";
 
 	current_state_->exit();
+
+	current_state_->onStateFinishedCallback.unset();
 }
 
 void PlayScene::changeState(const std::shared_ptr<GameStateBase>& state)

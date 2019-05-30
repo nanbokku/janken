@@ -24,21 +24,17 @@ Constants::HandGesture LeapFinger::get()
 	
 	switch (countFingers) {
 	case 0:
-		eturn Constants::HandGesture::Goo;
-		break;
+		return Constants::HandGesture::Goo;
 	case 1:
 	case 2:
 		return Constants::HandGesture::Choki;
-		break;
 	case 3:
 	case 4:
 	case 5:
 		return Constants::HandGesture::Pa;
-		break;
 
 	default:
 		return Constants::HandGesture::None;
-		break;
 	}
 
 }

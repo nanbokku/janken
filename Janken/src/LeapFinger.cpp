@@ -12,17 +12,19 @@ Constants::HandGesture LeapFinger::get()
 	Leap::Frame frame = controller_.frame();
 	Leap::HandList hands = frame.hands();
 	Leap::FingerList fingers = frame.fingers();
-
+	Vector position = hands.frontmost().palmPosition();
 
 	for (int f = 0; f < frame.fingers().count(); f++) {
 		Finger finger = frame.fingers()[f];
 		if (finger.isExtended()) countFingers++;
 	}
-
+	if ((hands.isEmpty()) || !((-100 < position.x) && (position.x < 100))) {
+		return Constants::HandGesture::None;
+	}
+	
 	switch (countFingers) {
 	case 0:
-		if(hands.isEmpty()) return Constants::HandGesture::None;
-		else return Constants::HandGesture::Goo;
+		eturn Constants::HandGesture::Goo;
 		break;
 	case 1:
 	case 2:

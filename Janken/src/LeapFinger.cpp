@@ -20,17 +20,17 @@ Constants::HandGesture LeapFinger::get()
 	}
 
 	switch (countFingers) {
-	case 1:
-		return Constants::HandGesture::Goo;
+	case 0:
+		if(hands.isEmpty()) return Constants::HandGesture::None;
+		else return Constants::HandGesture::Goo;
 		break;
-
+	case 1:
 	case 2:
-	case 3:
 		return Constants::HandGesture::Choki;
 		break;
+	case 3:
 	case 4:
 	case 5:
-	case 6:
 		return Constants::HandGesture::Pa;
 		break;
 

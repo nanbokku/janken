@@ -77,5 +77,6 @@ namespace Constants
 		static const String JankenponStr;
 		static const String CorrectStr;
 		static const String IncorrectStr;
+		static const String CountStr;
 	};
 }

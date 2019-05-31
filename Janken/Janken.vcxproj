@@ -143,12 +143,12 @@
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <MinimalRebuild>false</MinimalRebuild>
-      <AdditionalIncludeDirectories>C:\libraries\LeapSDK\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\NAN\libraries\LeapDeveloperKit_3.2.1+45911_win\LeapSDK\include;C:\libraries\LeapSDK\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\libraries\LeapSDK\lib\x64\cmake;C:\libraries\LeapSDK\lib\x64;E:\libraries\LeapSDK\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\libraries\LeapSDK\lib\x64\cmake;C:\libraries\LeapSDK\lib\x64;E:\libraries\LeapSDK\lib\x64;C:\Users\NAN\libraries\LeapDeveloperKit_3.2.1+45911_win\LeapSDK\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>Leap.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
@@ -293,6 +293,7 @@
     <Media Include="wav\audio_16380.wav" />
     <Media Include="wav\audio_16385.wav" />
     <Media Include="wav\audio_16388.wav" />
+    <Media Include="wav\audio_2654.wav" />
     <Media Include="wav\correct2.mp3" />
     <Media Include="wav\incorrect1.mp3" />
   </ItemGroup>

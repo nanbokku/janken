@@ -10,6 +10,7 @@ const Vec2 Title::StartBtnCenterPos = Vec2(WindowSize.x / 2, WindowSize.y * 3 / 
 const String Constants::Audio::JankenponStr = U"jankenpon";
 const String Constants::Audio::CorrectStr = U"correct2";
 const String Constants::Audio::IncorrectStr = U"incorrect1";
+const String Constants::Audio::CountStr = U"audio_2654";
 
 const String Result::ResultStr = String(U"スコア");
 const String Result::ReturnBtnStr = String(U"スタート画面に戻る");

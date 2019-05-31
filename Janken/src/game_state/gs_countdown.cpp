@@ -9,11 +9,15 @@ GS_Countdown::GS_Countdown(Constants::Score* score) : GameStateBase(score),  sto
 
 void GS_Countdown::initialize()
 {
-	stopwatch_.start();
 }
 
 void GS_Countdown::update()
 {
+	if (!stopwatch_.isRunning()) {
+		stopwatch_.reset();
+		stopwatch_.start();
+	}
+
 	// カウントダウン
 	if (stopwatch_.ms() > 1000) {
 		stopwatch_.reset();

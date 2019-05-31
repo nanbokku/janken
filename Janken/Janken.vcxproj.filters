@@ -90,6 +90,7 @@
     <Media Include="wav\audio_16388.wav" />
     <Media Include="wav\correct2.mp3" />
     <Media Include="wav\incorrect1.mp3" />
+    <Media Include="wav\audio_2654.wav" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="App\example\test.xml" />

@@ -13,6 +13,7 @@ public:
 
 private:
 	const s3d::Font count_font_;
+	mutable int count_ = -1;
 	
 	// int‚©‚çchar32_t‚Ö•ÏŠ·
 	char32_t int2chr32(int) const;

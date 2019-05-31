@@ -2,6 +2,9 @@
 
 #include <Siv3D.hpp>
 
+#include "../audio_manager.h"
+#include "../constants/constants.h"
+
 CountdownUIController::CountdownUIController() : count_font_(200, Typeface::Bold)
 {
 
@@ -9,7 +12,13 @@ CountdownUIController::CountdownUIController() : count_font_(200, Typeface::Bold
 
 void CountdownUIController::draw(const int count) const
 {
-	count_font_(int2chr32(count)).draw(Arg::center = Vec2(Window::Width() / 2, Window::Height() / 2));
+	if (count != count_) {
+		count_ = count;
+
+		AudioManager::Instance().playSE(Constants::Audio::CountStr);
+	}
+
+	count_font_(int2chr32(count_)).draw(Arg::center = Vec2(Window::Width() / 2, Window::Height() / 2));
 }
 
 void CountdownUIController::update()

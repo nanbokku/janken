@@ -30,5 +30,5 @@ private:
 	const FilePath janPath = U"../wav/audio_16385.wav";
 	const FilePath kenPath = U"../wav/audio_16380.wav";
 	const FilePath ponPath = U"../wav/audio_16388.wav";
-	const std::vector<FilePath> sePaths = { U"../wav/correct2.mp3", U"../wav/incorrect1.mp3" };
+	const std::vector<FilePath> sePaths = { U"../wav/correct2.mp3", U"../wav/incorrect1.mp3", U"../wav/audio_2654.wav" };
 };

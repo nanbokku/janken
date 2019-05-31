@@ -42,7 +42,7 @@ bool CsvStream::write(const string& name, const vector<vector<string>>& lines)
 	return true;
 }
 
-vector<string> aplit(const string& line, const char delimiter)
+vector<string> CsvStream::split(const string& line, const char delimiter)
 {
 	int first = 0;
 	int last = line.find_first_of(delimiter);

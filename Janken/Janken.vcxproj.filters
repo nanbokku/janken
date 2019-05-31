@@ -17,6 +17,10 @@
     <ClCompile Include="src\ui\result_ui_controller.cpp" />
     <ClCompile Include="src\audio_manager.cpp" />
     <ClCompile Include="src\LeapFinger.cpp" />
+    <ClCompile Include="src\store\ranking_store.cpp" />
+    <ClCompile Include="src\filestream\csv_stream.cpp" />
+    <ClCompile Include="src\scene\ranking.cpp" />
+    <ClCompile Include="src\ui\ranking_ui_controller.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="common.props" />
@@ -108,5 +112,9 @@
     <ClInclude Include="src\event\event.h" />
     <ClInclude Include="src\audio_manager.h" />
     <ClInclude Include="src\LeapFinger.h" />
+    <ClInclude Include="src\store\ranking_store.h" />
+    <ClInclude Include="src\filestream\csv_stream.h" />
+    <ClInclude Include="src\scene\ranking.h" />
+    <ClInclude Include="src\ui\ranking_ui_controller.h" />
   </ItemGroup>
 </Project>

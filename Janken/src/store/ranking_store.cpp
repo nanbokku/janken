@@ -19,7 +19,7 @@ vector<vector<string>> RankingStore::update(const string& name, const int score)
 		return data[1] >= line[1];
 	});
 
-	if (it == ranking_.end()) return;
+	if (it == ranking_.end()) return vector<vector<string>>();
 
 	ranking_.insert(it, { name, to_string(score) });
 

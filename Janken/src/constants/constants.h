@@ -51,7 +51,7 @@ namespace Constants
 	{
 		static constexpr int MaxCountdown = 3;
 		static constexpr int MaxWaitMs = 3000;
-		static constexpr int MaxNumOfQuestions = 10;
+		static constexpr int MaxNumOfQuestions = 1;
 	};
 
 	struct Result
@@ -64,6 +64,12 @@ namespace Constants
 		static const Vec2 ReturnBtnCenterPos;
 		static const Vec2 RankingBtnCenterPos;
 		static constexpr Color ResultColor = Palette::White;
+	};
+
+	struct Ranking
+	{
+		static const String ReturnBtnStr;
+		static const Vec2 ReturnBtnCenterPos;
 	};
 
 	struct Audio

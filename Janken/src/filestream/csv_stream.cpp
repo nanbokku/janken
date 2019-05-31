@@ -49,12 +49,16 @@ vector<string> CsvStream::split(const string& line, const char delimiter)
 	vector<string> result;
 
 	while (first < line.size()) {
-		auto cell = line.substr(first, last - first);
+		string cell(line, first, last - first);
 
 		result.push_back(cell);
 
 		first = last + 1;
-		last = line.find_first_of(delimiter);
+		last = line.find_first_of(delimiter, first);
+
+		if (last == std::string::npos) {
+			last = line.size();
+		}
 	}
 
 	return result;

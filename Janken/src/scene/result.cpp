@@ -24,12 +24,15 @@ void ResultScene::ResultScore()
 	auto count = data.correct_answers;
 	auto time = data.time_score;
 	ui_controller_.result_score = (count * 100000 / time);
+
+	// ランキングを更新するとき
+	if (ranking_.needUpdate(ui_controller_.result_score)) {
+		ui_controller_.setInputState(true);
+	}
 }
 
 void ResultScene::initialize()
 {
-	Print << U"result scene";
-
 	ResultScore();
 
 	// スタートボタンが押されたときのコールバックを登録
@@ -42,6 +45,14 @@ void ResultScene::initialize()
 	// ランキングボタンが押されたときのコールバック
 	ui_controller_.onRankingBtnClickedCallback.set([&] {
 		// ランキング
+		this->exit();
+		this->changeScene(Constants::Scene::Ranking);
+	});
+
+	// 名前が入力されたときのコールバック
+	ui_controller_.onNameInputedCallback.set([&](std::string name) {
+		this->ranking_.update(name, ui_controller_.result_score);
+
 		this->exit();
 		this->changeScene(Constants::Scene::Ranking);
 	});

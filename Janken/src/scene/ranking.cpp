@@ -20,8 +20,9 @@ void RankingScene::draw() const
 void RankingScene::initialize()
 {
 	// タイトルボタンクリック時のコールバックを登録
-	ui_controller_.onTitleBtnClickedCallback.set([]() {
-
+	ui_controller_.onTitleBtnClickedCallback.set([&]() {
+		this->exit();
+		changeScene(Constants::Scene::Title);
 	});
 }
 

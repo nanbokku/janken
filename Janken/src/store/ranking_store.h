@@ -9,6 +9,7 @@ public:
 	~RankingStore() = default;
 
 	std::vector<std::vector<std::string>> update(const std::string&, int);
+	std::vector<std::vector<std::string>> getall();
 
 private:
 	CsvStream csv_;

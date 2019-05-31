@@ -3,6 +3,7 @@
 #include <HamFramework/SceneManager.hpp>
 
 #include "../ui/result_ui_controller.h"
+#include "../store/ranking_store.h"
 
 // forward declaration
 namespace Constants
@@ -23,4 +24,5 @@ public:
 
 private:
 	ResultUIController ui_controller_;
+	RankingStore ranking_;
 };

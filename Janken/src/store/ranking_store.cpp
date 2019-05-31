@@ -33,3 +33,8 @@ vector<vector<string>> RankingStore::update(const string& name, const int score)
 
 	return ranking_;
 }
+
+vector<vector<string>> RankingStore::getall()
+{
+	return ranking_;
+}

@@ -3,7 +3,7 @@
 #include <Siv3D.hpp>
 #include "../constants/constants.h"
 
-ResultScene::ResultScene(const InitData& data) : IScene(data), ui_controller_()
+ResultScene::ResultScene(const InitData& data) : IScene(data), ui_controller_(), ranking_()
 {
 	initialize();
 }
@@ -21,6 +21,7 @@ void ResultScene::draw() const
 void ResultScene::initialize()
 {
 	Print << U"result scene";
+
 
 	// スタートボタンが押されたときのコールバックを登録
 	ui_controller_.onStartBtnClickedCallback.set([&] {

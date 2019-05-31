@@ -19,13 +19,12 @@ void ResultScene::draw() const
 	ui_controller_.draw();
 }
 
-int ResultScene::ResultScore()
+void ResultScene::ResultScore()
 {
 	Constants::Score& data = getData();	// Score構造体
 	auto count = data.correct_answers;
 	auto time = data.time_score;
-	ui_controller_.result_score = count / time + 100;
-	return  (count *10000 /time);
+	ui_controller_.result_score = (count * 100000 / time);
 }
 
 
@@ -33,7 +32,7 @@ int ResultScene::ResultScore()
 void ResultScene::initialize()
 {
 	Print << U"result scene";
-
+	ResultScore();
 	// スタートボタンが押されたときのコールバックを登録
 	ui_controller_.onStartBtnClickedCallback.set([&] {
 		// タイトルに戻る

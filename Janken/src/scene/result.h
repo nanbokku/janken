@@ -17,7 +17,7 @@ public:
 	ResultScene(const InitData& data);
 	void update() override;
 	void draw()  const override;
-	int ResultScore();
+	void ResultScore();
 	void initialize();
 	void exit();
 

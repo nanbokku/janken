@@ -56,9 +56,10 @@ void GS_Play::update()
 	if (correct) Print << U"correct";
 
 	if (correct) {
-		next();
 		score_->time_score += stopwatch_.ms();
 		score_->correct_answers++;
+		stopwatch_.reset();
+		next();
 	}
 }
 

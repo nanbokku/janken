@@ -6,6 +6,7 @@
 #include "scene/title.h"
 #include "scene/play.h"
 #include "scene/result.h"
+#include "scene/ranking.h"
 #include "constants/constants.h"
 
 using MyApp = SceneManager<Constants::Scene, Constants::Score>;
@@ -31,6 +32,7 @@ void GameManager::initialize()
 	manager_->add<TitleScene>(Constants::Scene::Title);
 	manager_->add<PlayScene>(Constants::Scene::Play);
 	manager_->add<ResultScene>(Constants::Scene::Result);
+	manager_->add<RankingScene>(Constants::Scene::Ranking);
 }
 
 void GameManager::loop()

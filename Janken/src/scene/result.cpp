@@ -10,7 +10,6 @@ ResultScene::ResultScene(const InitData& data) : IScene(data), ui_controller_(),
 
 void ResultScene::update()
 {
-	
 	ui_controller_.update();
 }
 
@@ -27,8 +26,6 @@ void ResultScene::ResultScore()
 	ui_controller_.result_score = (count * 100000 / time);
 }
 
-
-
 void ResultScene::initialize()
 {
 	Print << U"result scene";
@@ -40,6 +37,13 @@ void ResultScene::initialize()
 		// タイトルに戻る
 		this->exit();
 		this->changeScene(Constants::Scene::Title);
+	});
+
+	// ランキングボタンが押されたときのコールバック
+	ui_controller_.onRankingBtnClickedCallback.set([&] {
+		// ランキング
+		this->exit();
+		this->changeScene(Constants::Scene::Ranking);
 	});
 }
 

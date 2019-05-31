@@ -15,8 +15,10 @@ public:
 	void update();
 	int result_score;
 	Event<void, void> onStartBtnClickedCallback;
+	Event<void, void> onRankingBtnClickedCallback;
 
 private:
 	const Font result_font_;
 	const RectF return_btn_;
+	const RectF ranking_btn_;
 };

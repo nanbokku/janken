@@ -8,7 +8,8 @@ namespace Constants
 	{
 		Title,
 		Play,
-		Result
+		Result,
+		Ranking
 	};
 
 	const enum class GameState
@@ -57,9 +58,11 @@ namespace Constants
 	{
 		static const String ResultStr;
 		static const String ReturnBtnStr;
+		static const String RankingBtnStr;
 		static const Vec2 ResultCenterPos;
 		static const Vec2 ScoreCenterPos;
 		static const Vec2 ReturnBtnCenterPos;
+		static const Vec2 RankingBtnCenterPos;
 		static constexpr Color ResultColor = Palette::White;
 	};
 

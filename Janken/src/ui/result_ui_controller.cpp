@@ -2,7 +2,7 @@
 #include "../constants/constants.h"
 
 
-ResultUIController::ResultUIController() : result_font_(100, Typeface::Bold, FontStyle::Bitmap), return_btn_(SimpleGUI::ButtonRegionAt(Constants::Result::ReturnBtnStr, Constants::Result::ReturnBtnCenterPos, 300))
+ResultUIController::ResultUIController() : result_font_(100, Typeface::Bold, FontStyle::Bitmap), return_btn_(SimpleGUI::ButtonRegionAt(Constants::Result::ReturnBtnStr, Constants::Result::ReturnBtnCenterPos, 300)), ranking_btn_(SimpleGUI::ButtonRegionAt(Constants::Result::RankingBtnStr, Constants::Result::RankingBtnCenterPos, 300))
 {
 
 }
@@ -10,8 +10,6 @@ ResultUIController::ResultUIController() : result_font_(100, Typeface::Bold, Fon
 
 void ResultUIController::draw() const
 {
-	
-	// TODO
 	// 正解数の表示
 	result_font_(Constants::Result::ResultStr).draw(Arg::center = Constants::Result::ResultCenterPos.movedBy(1.5, 2), Constants::ShadowColor);   // 影をつける
 	result_font_(Constants::Result::ResultStr).draw(Arg::center = Constants::Result::ResultCenterPos, Constants::Result::ResultColor);
@@ -20,14 +18,21 @@ void ResultUIController::draw() const
 
 	// タイトルに戻るボタン表示
 	SimpleGUI::ButtonAt(Constants::Result::ReturnBtnStr, Constants::Result::ReturnBtnCenterPos, 300);
+
+	// ランキングボタン
+	SimpleGUI::ButtonAt(Constants::Result::RankingBtnStr, Constants::Result::RankingBtnCenterPos, 300);
 }
 
 void ResultUIController::update()
 {
-
 	// タイトルに戻るボタンをクリック
 	if (return_btn_.leftClicked()) {
 		onStartBtnClickedCallback.invoke();
+	}
+
+	// ランキングボタンクリック
+	if (ranking_btn_.leftClicked()) {
+		onRankingBtnClickedCallback.invoke();
 	}
 }
 

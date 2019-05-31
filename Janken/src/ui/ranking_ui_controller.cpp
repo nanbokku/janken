@@ -1,6 +1,6 @@
 #include "ranking_ui_controller.h"
 
-RankingUIController::RankingUIController()
+RankingUIController::RankingUIController() : rects_(10)
 {
 
 }

@@ -1,5 +1,6 @@
 #pragma once
 
+#include <Siv3D.hpp>
 #include "../event/event.h"
 
 class RankingUIController
@@ -13,5 +14,7 @@ public:
 
 	Event<void, void> onTitleBtnClickedCallback;
 
-
+private:
+	const std::vector<Rect> rects_;
+	const Font font_;
 };

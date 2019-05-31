@@ -32,6 +32,7 @@ namespace Constants
 	struct Score
 	{
 		int correct_answers;
+		double time_score;
 		
 	};
 
@@ -57,6 +58,7 @@ namespace Constants
 		static const String ResultStr;
 		static const String ReturnBtnStr;
 		static const Vec2 ResultCenterPos;
+		static const Vec2 ScoreCenterPos;
 		static const Vec2 ReturnBtnCenterPos;
 		static constexpr Color ResultColor = Palette::White;
 	};

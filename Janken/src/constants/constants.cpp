@@ -11,7 +11,8 @@ const String Constants::Audio::JankenponStr = U"jankenpon";
 const String Constants::Audio::CorrectStr = U"correct2";
 const String Constants::Audio::IncorrectStr = U"incorrect1";
 
-const String Result::ResultStr = String(U"正解数");
+const String Result::ResultStr = String(U"スコア");
 const String Result::ReturnBtnStr = String(U"スタート画面に戻る");
 const Vec2 Result::ResultCenterPos = Vec2(WindowSize.x / 2, WindowSize.y / 4);
+const Vec2 Result::ScoreCenterPos = Vec2(WindowSize.x / 2, WindowSize.y / 2);
 const Vec2 Result::ReturnBtnCenterPos = Vec2(WindowSize.x / 2, WindowSize.y * 3 / 4);

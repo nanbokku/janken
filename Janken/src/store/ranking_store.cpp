@@ -22,7 +22,7 @@ vector<vector<string>> RankingStore::update(const string& name, const int score)
 	else {
 		// ランキングの中でスコアが更新されるものがあるか検索
 		auto it = find_if(ranking_.begin(), ranking_.end(), [&](vector<string> line) {
-			return score >= stoi(line[1]);
+			return score > stoi(line[1]);
 		});
 
 		if (it == ranking_.end()) return vector<vector<string>>();
@@ -52,7 +52,7 @@ bool RankingStore::needUpdate(const int score)
 
 	// ランキングの中でスコアが更新されるものがあるか検索
 	auto it = find_if(ranking_.begin(), ranking_.end(), [&](vector<string> line) {
-		return score >= stoi(line[1]);
+		return score > stoi(line[1]);
 	});
 
 	if (it == ranking_.end()) return false;

@@ -25,10 +25,12 @@ void ResultUIController::draw() const
 
 void ResultUIController::update()
 {
+	if (MouseL.down()) {
+		push_count_++;
+	}
+
 	// タイトルに戻るボタンをクリック
 	if (return_btn_.leftClicked()) {
-		push_count_++;
-
 		if (input_state_) return;
 
 		onStartBtnClickedCallback.invoke();
@@ -36,8 +38,6 @@ void ResultUIController::update()
 
 	// ランキングボタンクリック
 	if (ranking_btn_.leftClicked()) {
-		push_count_++;
-
 		if (input_state_) return;
 
 		onRankingBtnClickedCallback.invoke();
@@ -48,7 +48,7 @@ void ResultUIController::update()
 	// ほんとはdrawに書きたい
 	text_back_.draw(ColorF(0.0, 1.0));
 	name_font_(U"ランキング更新！名前を入力してね．").drawAt(Vec2(Window::Width() / 2, Window::Height() / 2 - 80));
-	SimpleGUI::TextBoxAt(text_, Window::Center(), 300, 10);
+	SimpleGUI::TextBoxAt(text_, Window::Center(), 300, 7);
 	if (SimpleGUI::ButtonAt(U"決定", Vec2(Window::Width()/2, Window::Height() / 2 + 100), 100)) {
 		if (text_.text.isEmpty()) return;
 

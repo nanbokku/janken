@@ -17,8 +17,6 @@ GS_Play::GS_Play(Constants::Score* score) : GameStateBase(score), ui_controller_
 
 void GS_Play::initialize()
 {
-	Print << U"play state";
-
 	// 問題が生成されたときのコールバックを登録
 	history_.onQuestionAddedCallback.set([&](const question_pair& questions) {
 		is_active_ = true;
@@ -49,8 +47,6 @@ void GS_Play::update()
 	// LeapMotionから手を取得
 	auto hand = leap_.get();
 	auto correct = history_.addAnswer(hand);
-
-	if (correct) Print << U"correct";
 
 	if (correct) {
 		score_->time_score += stopwatch_.ms();
@@ -110,6 +106,4 @@ void GS_Play::newQuestion()
 	AudioManager::Instance().playSE(Constants::Audio::JankenponStr);
 
 	history_.push_back_question(question);
-
-	Print << U"add question";
 }

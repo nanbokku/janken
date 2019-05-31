@@ -11,6 +11,7 @@ public:
 
 	void draw() const;
 	void update();
+	void initialize(const std::vector<std::vector<std::string>>&);
 
 	Event<void, void> onTitleBtnClickedCallback;
 
@@ -38,4 +39,8 @@ private:
 	}();
 	const Font font_;
 	const Rect return_btn_;
+
+	std::vector<String> ranks_;
+	std::vector<String> scores_;
+	std::vector<String> names_;
 };

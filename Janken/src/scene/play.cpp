@@ -20,17 +20,12 @@ void PlayScene::draw() const
 
 void PlayScene::initialize()
 {
-	ClearPrint();
-	Print << U"initialize play";
-
 	auto score = &getData();
 	changeState(std::make_shared<GS_Countdown>(score));
 }
 
 void PlayScene::exit()
 {
-	Print << U"exit play";
-
 	current_state_->exit();
 
 	current_state_->onStateFinishedCallback.unset();

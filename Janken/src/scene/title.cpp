@@ -19,9 +19,6 @@ void TitleScene::draw() const
 
 void TitleScene::initialize()
 {
-	ClearPrint();
-	Print << U"initialize title";
-
 	// スタートボタンクリック時のコールバック登録
 	ui_controller_.onStartBtnClickedCallback.set([&]() {
 		this->exit();
@@ -31,7 +28,5 @@ void TitleScene::initialize()
 
 void TitleScene::exit()
 {
-	Print << U"exit title";
-
 	ui_controller_.onStartBtnClickedCallback.unset();
 }

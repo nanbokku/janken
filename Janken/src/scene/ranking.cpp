@@ -2,7 +2,7 @@
 
 #include "../constants/constants.h"
 
-RankingScene::RankingScene(const InitData& data) : IScene(data), ui_controller_()
+RankingScene::RankingScene(const InitData& data) : IScene(data), ui_controller_(), ranking_()
 {
 	initialize();
 }
@@ -19,6 +19,9 @@ void RankingScene::draw() const
 
 void RankingScene::initialize()
 {
+	auto ranking = ranking_.getall();
+	ui_controller_.initialize(ranking);
+
 	// タイトルボタンクリック時のコールバックを登録
 	ui_controller_.onTitleBtnClickedCallback.set([&]() {
 		this->exit();

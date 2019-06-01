@@ -16,23 +16,24 @@ vector<vector<string>> RankingStore::update(const string& name, const int score)
 {
 	vector<string> data = { name, to_string(score) };
 
-	if (ranking_.size() < maxCount) {
+	// ランキングの中でスコアが更新されるものがあるか検索
+	auto it = find_if(ranking_.begin(), ranking_.end(), [&](vector<string> line) {
+		return score > stoi(line[1]);
+	});
+
+	if (it == ranking_.end() && ranking_.size() < maxCount) {
 		ranking_.push_back(data);
 	}
+	else if (it == ranking_.end()) {
+		return vector<vector<string>>();
+	}
 	else {
-		// ランキングの中でスコアが更新されるものがあるか検索
-		auto it = find_if(ranking_.begin(), ranking_.end(), [&](vector<string> line) {
-			return score > stoi(line[1]);
-		});
-
-		if (it == ranking_.end()) return vector<vector<string>>();
-
 		ranking_.insert(it, data);
+	}
 
-		// ランキング数の制限
-		if (ranking_.size() > maxCount && ranking_[ranking_.size() - 1] != ranking_[ranking_.size() - 2]) {
-			ranking_.pop_back();
-		}
+	// ランキング数の制限
+	if (ranking_.size() > maxCount && ranking_[ranking_.size() - 1] != ranking_[ranking_.size() - 2]) {
+		ranking_.pop_back();
 	}
 
 	// ファイルの上書き

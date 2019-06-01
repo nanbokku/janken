@@ -38,13 +38,13 @@ void RankingUIController::initialize(const vector<vector<string>>& ranking)
 	vector<String> scores;
 	vector<String> names;
 
-	int current_rank = 0, current_score = -1;
+	int current_rank = 0, current_score = 999999;
 	for (auto rank : ranking)
 	{
 		string name = rank[0];
 		int score = stoi(rank[1]);
 
-		if (score > current_score) {
+		if (score < current_score) {
 			current_score = score;
 			current_rank++;
 		}
